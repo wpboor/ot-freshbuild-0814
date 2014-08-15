@@ -1,0 +1,49 @@
+// Tai's Simple (Non-Grid-System) Columns
+
+.col {
+	display: inline;
+	float: left;
+}
+
+.container {
+  clear: both;
+  .col-full,
+  .col-primary,
+  .col-secondary,
+  .col-half {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+	.container {
+	  .col-primary {
+	    width: @twothirds;
+	    margin-left: @gutterwidth;
+	    float: right;
+	  }
+	  .col-secondary {
+	    width: @onethird;
+	    margin-right: @gutterwidth;
+	  }
+	  .col-half {
+	    width: @onehalf;
+	    &:first-of-type {
+  	    margin-right: @gutterwidth;
+	    }
+	    &:last-of-type {
+  	    margin-left: @gutterwidth;
+  	    float: right;
+	    }
+	  }
+	}
+}
+
+.col-solo,
+.col-solo-text {
+  display: block;
+  float: none;
+  max-width: 40em;
+  margin-right: auto;
+  margin-left: auto;
+}

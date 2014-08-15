@@ -1,0 +1,110 @@
+/* 
+TO DO:
+  - remove dependency on column mixins
+  - turn the whole thing into a mixin with min, max, and breakpoint arguments
+*/
+
+/* the container for the items; also needs min and max classes on it */
+.thumbnails {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* each item */
+.min1 .item {
+  .column(12);
+}
+.min2 .item {
+  .column(6);
+}
+.min2 .item:nth-of-type(2n+1) {
+  clear: left;
+}
+.min3 .item {
+  .column(4);
+}
+.min3 .item:nth-of-type(3n+1) {
+  clear: left;
+}
+
+
+@media only screen and (min-width: 30em) {
+/*
+  .max6 .item,
+  .max4 .item,
+  .max3 .item,
+  .max2 .item {
+    .column(6);
+  }
+  .max6 .item:nth-of-type(2n+1),
+  .max4 .item:nth-of-type(2n+1),
+  .max3 .item:nth-of-type(2n+1),
+  .max2 .item:nth-of-type(2n+1) {
+    clear: left;
+  }
+*/
+
+  .min1 .item {
+    .column(6);
+  }
+  .min2 .item {
+    .column(4);
+  }
+  .min2 .item:nth-of-type(2n+1),
+  .min3 .item:nth-of-type(3n+1) {
+    clear: none;
+  }
+  .min1 .item:nth-of-type(2n+1),
+  .min2 .item:nth-of-type(3n+1),
+  .max4 .item:nth-of-type(3n+1),
+  .max6 .item:nth-of-type(3n+1) {
+    clear: left;
+  }
+
+}
+
+@media only screen and (min-width: 40em) {
+  .max6 .item {
+    .column(3);
+  }
+  .max4 .item {
+    .column(4);
+  }
+  .min1 .item:nth-of-type(2n+1),
+  .min2 .item:nth-of-type(3n+1),
+  .max6 .item:nth-of-type(3n+1),
+  .max6 .item:nth-of-type(2n+1),
+  .max4 .item:nth-of-type(3n+1)
+  .max4 .item:nth-of-type(2n+1),
+  .max3 .item:nth-of-type(2n+1),
+  .max2 .item:nth-of-type(2n+1) {
+    clear: none;
+  }
+  .max6 .item:nth-of-type(4n+1),
+  .max4 .item:nth-of-type(3n+1) {
+    clear: left;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .max6 .item {
+    .column(2);
+  }
+  .max4 .item {
+    .column(3);
+  }
+  .max3 .item {
+    .column(4);
+  }
+  .max6 .item:nth-of-type(4n+1),
+  .max4 .item:nth-of-type(3n+1) {
+    clear: none;
+  }
+  .max6 .item:nth-of-type(6n+1),
+  .max4 .item:nth-of-type(4n+1),
+  .max3 .item:nth-of-type(3n+1),
+  .max2 .item:nth-of-type(2n+1) {
+    clear: left;
+  }
+}
